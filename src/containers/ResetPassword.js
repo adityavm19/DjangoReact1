@@ -29,6 +29,8 @@ const ResetPassword = ({ reset_password }) => {
             <h1>Request Password Reset:</h1>
             <form onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
+                    <label>
+                    Email:
                     <input
                         className='form-control'
                         type='email'
@@ -38,8 +40,11 @@ const ResetPassword = ({ reset_password }) => {
                         onChange={e => onChange(e)}
                         required
                     />
+
+                    </label>
+                    <button className='btn btn-primary' type='submit'>Reset Password</button>
                 </div>
-                <button className='btn btn-primary' type='submit'>Reset Password</button>
+
             </form>
         </div>
     );

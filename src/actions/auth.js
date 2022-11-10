@@ -107,6 +107,30 @@ export const login = (email, password) => async dispatch => {
     }
 };
 
+export const StudLogin = (first_name, last_name,username,birthdate, password, re_password) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const body = JSON.stringify({ first_name, last_name,username,birthdate, password, re_password });
+
+    try {
+        const res = await axios.post(`http://localhost:8000/login/users/`, body, config);
+
+        dispatch({
+            type: SIGNUP_SUCCESS,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: SIGNUP_FAIL
+        })
+    }
+};
+
+
 export const signup = (first_name, last_name,username,postcode, email, password, re_password) => async dispatch => {
     const config = {
         headers: {

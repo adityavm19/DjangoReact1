@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signup } from '../actions/auth';
+import { StudLogin } from '../actions/auth';
 import axios from 'axios';
 
-const Signup = ({ signup, isAuthenticated }) => {
+const StudCreate = ({ StudLogin, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
         username:'',
-        postcode:'',
-        email: '',
+        birthdate:'',
         password: '',
         re_password: ''
     });
 
-    const { first_name, last_name,username,postcode, email, password, re_password } = formData;
+    const { first_name, last_name,username,birthdate, password, re_password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -24,7 +23,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         e.preventDefault();
 
         if (password === re_password) {
-            signup(first_name, last_name,username,postcode, email, password, re_password);
+            StudLogin(first_name, last_name,username,birthdate, password, re_password);
             setAccountCreated(true);
         }
     };
@@ -39,9 +38,6 @@ const Signup = ({ signup, isAuthenticated }) => {
     }
 
     return (
-
-
-
         <div className='container mt-5'>
             <h1>Sign Up</h1>
             <p>Create your Account</p>
@@ -105,12 +101,12 @@ const Signup = ({ signup, isAuthenticated }) => {
 
 
                 <label>
-                    PostCode:
+                    Date of Birth:
                         <input
                         className='form-control'
                         type='text'
-                        placeholder='PostCode'
-                        name='PostCode'
+                        placeholder='Date of Birth'
+                        name='Birthdate'
                         value={last_name}
                         onChange={e => onChange(e)}
                         required
@@ -166,4 +162,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.login.isAuthenticated
 });
 
-export default connect(mapStateToProps, { signup })(Signup);
+export default connect(mapStateToProps, { StudLogin })(StudCreate);

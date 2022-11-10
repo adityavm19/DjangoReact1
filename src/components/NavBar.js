@@ -7,6 +7,7 @@ const NavBar = ({logout, isAuthenticated}) => {
         <Fragment>
             <a class="nav-link" href="/login">Login</a>
             <a class="nav-link" href="/signup">Signup</a>
+            <a class="nav-link" href="/create_student">CreateStudent</a>
             <a class="nav-link" href="/reset_password">Password Reset</a>
         </Fragment>
 

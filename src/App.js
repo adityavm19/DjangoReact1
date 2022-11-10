@@ -8,6 +8,7 @@ import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import { Provider } from 'react-redux';
 import store from './store';
+import CreateStudent from './containers/CreateStudent';
 
 import Layout from './hocs/Layouts';
 
@@ -22,6 +23,7 @@ const App = () => (
                     <Route path='/signup' element={<Signup />} />
                     <Route path='/reset_password' element={<ResetPassword />} />
                     <Route path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
+                    <Route path='/create_student' element={<CreateStudent />} />
                 </Routes>
             </Layout>
         </Router>

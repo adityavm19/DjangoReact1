@@ -20,7 +20,7 @@ const Login = ({login, isAuthenticated}) => {
     };
 
     if (isAuthenticated) {
-        return <Navigate to='/' />
+        return <Navigate to='/create_student' />
     }
 
     return (
@@ -28,7 +28,11 @@ const Login = ({login, isAuthenticated}) => {
             <h1>Sign In</h1>
             <p>Sign into your Account</p>
             <form onSubmit={e => onSubmit(e)}>
-                <div className='form-group'>
+
+
+                <div className='form-group' >
+                    <label>
+                    Email:
                     <input
                         className='form-control'
                         type='email'
@@ -38,8 +42,10 @@ const Login = ({login, isAuthenticated}) => {
                         onChange={e => onChange(e)}
                         required
                     />
-                </div>
-                <div className='form-group'>
+                    </label>
+
+                    <label>
+                    Password:
                     <input
                         className='form-control'
                         type='password'
@@ -50,7 +56,10 @@ const Login = ({login, isAuthenticated}) => {
                         minLength='6'
                         required
                     />
+
+                    </label>
                 </div>
+
                 <button className='btn btn-primary' type='submit'>Login</button>
             </form>
             <p className='mt-3'>
